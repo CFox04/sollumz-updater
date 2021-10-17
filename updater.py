@@ -1,7 +1,7 @@
 import os
 import traceback
 from tkinter import Entry, Tk, Label, filedialog as fd, Button, END, Frame, W, E
-from tkinter.messagebox import showerror, showinfo
+from tkinter.messagebox import showerror, showinfo, askokcancel
 from git import Repo, rmtree, refresh
 from git.exc import InvalidGitRepositoryError
 import platform
@@ -99,6 +99,11 @@ def update():
         addon_path = get_addons_path() + '\Sollumz'
         if os.path.exists(addon_path):
             repo = get_git_repo(addon_path)
+            if repo:
+                overwrite = askokcancel(
+                    'Overwrite Directory', "Existing Sollumz installation found. In order to continue this install, the folder will be overwritten.")
+                if not overwrite:
+                    return
             rmtree(addon_path)
             # for root, dirs, files in os.walk(addon_path, topdown=False):
             #     for name in files:
