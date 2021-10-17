@@ -4,8 +4,11 @@ from tkinter import Entry, Tk, Label, filedialog as fd, Button, END, Frame, W, E
 from tkinter.messagebox import showerror, showinfo
 from git import Repo, rmtree
 from git.exc import InvalidGitRepositoryError
-import ctypes
-ctypes.windll.shcore.SetProcessDpiAwareness(2)
+import platform
+
+if platform.system() == 'Windows':
+    import ctypes
+    ctypes.windll.shcore.SetProcessDpiAwareness(2)
 
 
 def get_addons_path():
