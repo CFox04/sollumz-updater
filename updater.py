@@ -2,7 +2,7 @@ import os
 import traceback
 from tkinter import Entry, Tk, Label, filedialog as fd, Button, END, Frame, W, E
 from tkinter.messagebox import showerror, showinfo
-from git import Repo, rmtree
+from git import Repo, rmtree, refresh
 from git.exc import InvalidGitRepositoryError
 import platform
 
@@ -112,6 +112,7 @@ def update():
         git = repo.git
         git.checkout(branch_entry.get())
         git.for_each_ref()
+        showinfo('Success', 'Sollumz successfully updated.')
     except Exception as e:
         showerror("Error", traceback.format_exc())
 
