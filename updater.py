@@ -59,7 +59,7 @@ branch_entry.insert(0, 'refactor')
 branch_entry.pack(pady=ITEM_PADDING, anchor="w")
 
 select_label = Label(frame, text="Select Blender Addons Directory")
-select_label.pack()
+select_label.pack(anchor="w")
 
 path_entry = Entry(frame, width=ENTRY_WIDTH)
 path_entry.insert(0, get_addons_path() or 'unknown')
