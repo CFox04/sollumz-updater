@@ -112,7 +112,7 @@ def update():
             #         os.rmdir(os.path.join(root, name))
             # os.rmdir(addon_path)
 
-        repo = Repo.clone_from(repo_url, dir + '\Sollumz')
+        repo = Repo.clone_from(repo_entry.get(), dir + '\Sollumz')
         # Switch branch
         git = repo.git
         git.checkout(branch_entry.get())
